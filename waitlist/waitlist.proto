@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package waitlist;
+
+option go_package = "github.com/dedpanguru/grpc-waitlist;waitlist_grpc";
+
+message Request{
+    string name = 1;
+}
+
+message Response {
+    string placement = 1;
+}
+
+service WaitList{
+    rpc OptIn(Request) returns (Response);
+    rpc Check(Request) returns (Response);
+    rpc OptOut(Request) returns (Response);
+}
